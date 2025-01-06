@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Juros Compostos (JS)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif; 
+      margin: 20px;
+      max-width: 600px;
+    }
+    form {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      margin-bottom: 6px;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+      margin-bottom: 12px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #008cba;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .results {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .results p {
+      margin: 5px 0;
+    }
+    #chartContainer {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculadora de Juros Compostos em JavaScript</h1>
+
+  <form id="calcForm">
+    <label for="depositoMensal">Depósito Mensal (R$):</label><br>
+    <input type="text" name="depositoMensal" id="depositoMensal" value="360"><br><br>
+
+    <label for="taxaMensal">Taxa Mensal (%):</label><br>
+    <input type="text" name="taxaMensal" id="taxaMensal" value="0.6"><br><br>
+
+    <label for="totalAnos">Total de Anos:</label><br>
+    <input type="text" name="totalAnos" id="totalAnos" value="40"><br><br>
+
+    <label for="valorInicial">Valor Inicial (R$):</label><br>
+    <input type="text" name="valorInicial" id="valorInicial" value="0"><br><br>
+
+    <button type="submit">Calcular</button>
+  </form>
+
+  <div class="results" id="results" style="display: none;">
+    <p><strong>Depósito Mensal:</strong> <span id="resDeposito"></span></p>
+    <p><strong>Taxa de Juros Mensal:</strong> <span id="resTaxa"></span>%</p>
+    <p><strong>Total de Anos:</strong> <span id="resAnos"></span></p>
+    <p><strong>Valor Inicial:</strong> R$ <span id="resInicial"></span></p>
+    <hr>
+    <p><strong>Valor Final:</strong> R$ <span id="resFinal"></span></p>
+    <p><strong>Total Depositado (sem juros):</strong> R$ <span id="resTotalDeposito"></span></p>
+    <p><strong>Juros Acumulados:</strong> R$ <span id="resJuros"></span></p>
+  </div>
+
+  <div id="chartContainer">
+    <!-- O gráfico será inserido aqui -->
+    <canvas id="myChart" width="600" height="400" style="display: none;"></canvas>
+  </div>
+
+  <!-- Chart.js (para gerar gráfico) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Nosso script principal -->
+  <script src="script.js"></script>
+</body>
+</html>
